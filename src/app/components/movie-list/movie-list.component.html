@@ -1,0 +1,13 @@
+<div class="wraper">
+  <div class="container">
+    <div class="movie-list">
+      @for (movie of movies; track movie.id){
+      <app-movie-card
+        [movie]="movie"
+        (addToFavorite)="showFavorite($event)"
+        (addToWatchLists)="showWatchList($event)"
+      ></app-movie-card>
+      }
+    </div>
+  </div>
+</div>
