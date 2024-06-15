@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { EventEmitter, OnInit } from '@angular/core';
 import {} from '@angular/core';
 import { Component, Input, Output } from '@angular/core';
+import { DateFormatPipe } from 'app/pipes/date-format.pipe';
 
 @Component({
   selector: 'app-movie-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, DateFormatPipe],
   templateUrl: './movie-card.component.html',
   styleUrl: './movie-card.component.scss',
 })

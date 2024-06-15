@@ -70,11 +70,29 @@ export class MovieListComponent {
   ];
 
   showFavorite(movie: any): void {
-    this.favorites.push(movie);
+    const existingFavorite = this.favorites.find((fav) => fav.id === movie.id);
+
+    if (!existingFavorite) {
+      const newFavorite = { ...movie, favorite: true };
+      this.favorites.push(newFavorite);
+    } else {
+      existingFavorite.favorite = true;
+    }
+
     console.log('Favorites:', this.favorites);
   }
+
   showWatchLatter(movie: any): void {
-    this.watchLatters.push(movie);
-    console.log('WatchLatter:', this.watchLatters);
+    const existingWatchLatters = this.watchLatters.find(
+      (wLat) => wLat.id === movie.id
+    );
+
+    if (!existingWatchLatters) {
+      const newWatchLatters = { ...movie, favorite: true };
+      this.watchLatters.push(newWatchLatters);
+    } else {
+      existingWatchLatters.favorite = true;
+    }
+    console.log('WatchLatters:', this.watchLatters);
   }
 }

@@ -9,16 +9,14 @@
     </div>
 
     <div class="item-info">
-      <h2 class="title">{{ movie.original_title }}</h2>
+      <h2 class="title">{{ movie.original_title | uppercase }}</h2>
       <p class="info release_date">
-        <span>Release: </span> {{ movie.release_date }}
+        Release: {{ movie.release_date | dateFormat }}
       </p>
-      <p class="info popularity">
-        <span>Rating: </span> {{ movie.popularity }}
-      </p>
+      <p class="info popularity">Rating:{{ movie.popularity }}</p>
       <p class="overview">{{ movie.overview }}</p>
     </div>
-
+    @if (!movie.favorite){
     <div class="user-button">
       <button class="button favorite" (click)="addToFavoritesList()">
         Add to favorite
@@ -27,5 +25,9 @@
         Add to watch letter
       </button>
     </div>
+    }@else{
+    <ng-container></ng-container>
+
+    }
   </div>
 </div>
