@@ -2,8 +2,16 @@
   max-width: 1170px;
   margin: 0 auto;
 }
+
+.content {
+  display: flex;
+}
+
 .movie-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.favorite-content {
 }

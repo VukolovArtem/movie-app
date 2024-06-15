@@ -3,7 +3,6 @@ import { EventEmitter, OnInit } from '@angular/core';
 import {} from '@angular/core';
 import { Component, Input, Output } from '@angular/core';
 
-
 @Component({
   selector: 'app-movie-card',
   standalone: true,
@@ -11,20 +10,18 @@ import { Component, Input, Output } from '@angular/core';
   templateUrl: './movie-card.component.html',
   styleUrl: './movie-card.component.scss',
 })
-export class MovieCardComponent implements OnInit {
+export class MovieCardComponent {
   @Input() movie: any;
+  @Input() isFavorite: boolean = false;
   @Output() addToFavorite = new EventEmitter<any>();
-  @Output() addToWatchLists = new EventEmitter<any>();
+  @Output() addToWatchLetter = new EventEmitter<any>();
 
-  public id: number = Infinity;
-  ngOnInit() {
-    this.id = this.movie.id;
-  }
-  addToFavorites() {
-    this.addToFavorite.emit(this.id);
+  addToFavoritesList(): void {
+    this.addToFavorite.emit(this.movie);
     console.log('addToFavorite');
   }
-  addToWatchList() {
-    this.addToWatchLists.emit(this.id);
+  addToWatchLetterList(): void {
+    this.addToWatchLetter.emit(this.movie);
+    console.log('addToFavorite');
   }
 }

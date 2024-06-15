@@ -19,12 +19,13 @@
       <p class="overview">{{ movie.overview }}</p>
     </div>
 
-    <div class="user-button"></div>
-    <button class="button favorite" (click)="addToFavorites()">
-      Add to favorite
-    </button>
-    <button class="button watch-letter" (click)="addToWatchList()">
-      Add to watch letter
-    </button>
+    <div class="user-button">
+      <button class="button favorite" (click)="addToFavoritesList()">
+        Add to favorite
+      </button>
+      <button class="button watch-letter" (click)="addToWatchLetterList()">
+        Add to watch letter
+      </button>
+    </div>
   </div>
 </div>

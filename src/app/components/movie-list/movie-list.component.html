@@ -4,10 +4,31 @@
       @for (movie of movies; track movie.id){
       <app-movie-card
         [movie]="movie"
+        [isFavorite]="false"
         (addToFavorite)="showFavorite($event)"
-        (addToWatchLists)="showWatchList($event)"
+        (addToWatchLetter)="showWatchLatter($event)"
       ></app-movie-card>
       }
     </div>
+
+    @if (favorites.length>0){
+    <div class="favorite-block">
+      <h3>Favorites:</h3>
+      <div class="content favorite-content">
+        @for (favorite of favorites; track favorite.id){
+        <app-movie-card [movie]="favorite"></app-movie-card>
+        }
+      </div>
+    </div>
+    } @if (watchLatters.length>0){
+    <div class="watch-latter-block">
+      <h3>Watch latter:</h3>
+      <div class="content watch-latter-content">
+        @for (watchLatter of watchLatters; track watchLatter.id){
+        <app-movie-card [movie]="watchLatter"></app-movie-card>
+        }
+      </div>
+    </div>
+    }
   </div>
 </div>
