@@ -1,0 +1,30 @@
+<div class="movie-card">
+  <div class="content">
+    <div class="wraper-img">
+      <img
+        class="img"
+        src="{{ movie.backdrop_path }}"
+        alt="{{ movie.title }}"
+      />
+    </div>
+
+    <div class="item-info">
+      <h2 class="title">{{ movie.original_title }}</h2>
+      <p class="info release_date">
+        <span>Release: </span> {{ movie.release_date }}
+      </p>
+      <p class="info popularity">
+        <span>Rating: </span> {{ movie.popularity }}
+      </p>
+      <p class="overview">{{ movie.overview }}</p>
+    </div>
+
+    <div class="user-button"></div>
+    <button class="button favorite" (click)="addToFavorites()">
+      Add to favorite
+    </button>
+    <button class="button watch-letter" (click)="addToWatchList()">
+      Add to watch letter
+    </button>
+  </div>
+</div>
