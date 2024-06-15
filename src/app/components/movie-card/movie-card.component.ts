@@ -14,6 +14,7 @@ import { DateFormatPipe } from 'app/pipes/date-format.pipe';
 export class MovieCardComponent {
   @Input() movie: any;
   @Input() isFavorite: boolean = false;
+
   @Output() addToFavorite = new EventEmitter<any>();
   @Output() addToWatchLetter = new EventEmitter<any>();
 

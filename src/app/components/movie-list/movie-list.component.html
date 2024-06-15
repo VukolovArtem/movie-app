@@ -5,8 +5,8 @@
       <app-movie-card
         [movie]="movie"
         [isFavorite]="false"
-        (addToFavorite)="showFavorite($event)"
-        (addToWatchLetter)="showWatchLatter($event)"
+        (addToFavorite)="addFavorite($event)"
+        (addToWatchLetter)="addWatchLatter($event)"
       ></app-movie-card>
       }
     </div>
@@ -16,7 +16,7 @@
       <h3>Favorites:</h3>
       <div class="content favorite-content">
         @for (favorite of favorites; track favorite.id){
-        <app-movie-card [movie]="favorite"></app-movie-card>
+        <app-movie-card [movie]="favorite" [isFavorite]="true"></app-movie-card>
         }
       </div>
     </div>
@@ -25,7 +25,10 @@
       <h3>Watch latter:</h3>
       <div class="content watch-latter-content">
         @for (watchLatter of watchLatters; track watchLatter.id){
-        <app-movie-card [movie]="watchLatter"></app-movie-card>
+        <app-movie-card
+          [movie]="watchLatter"
+          [isFavorite]="true"
+        ></app-movie-card>
         }
       </div>
     </div>

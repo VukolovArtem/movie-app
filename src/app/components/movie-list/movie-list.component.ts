@@ -10,8 +10,9 @@ import { MovieCardComponent } from '../movie-card/movie-card.component';
   styleUrl: './movie-list.component.scss',
 })
 export class MovieListComponent {
-  favorites: any[] = [];
-  watchLatters: any[] = [];
+  public favorites: any[] = [];
+  public watchLatters: any[] = [];
+  public isFavorite: boolean = false;
 
   movies = [
     {
@@ -69,29 +70,22 @@ export class MovieListComponent {
     },
   ];
 
-  showFavorite(movie: any): void {
+  addFavorite(movie: any): void {
     const existingFavorite = this.favorites.find((fav) => fav.id === movie.id);
 
     if (!existingFavorite) {
-      const newFavorite = { ...movie, favorite: true };
-      this.favorites.push(newFavorite);
-    } else {
-      existingFavorite.favorite = true;
+      this.favorites.push(movie);
     }
-
     console.log('Favorites:', this.favorites);
   }
 
-  showWatchLatter(movie: any): void {
+  addWatchLatter(movie: any): void {
     const existingWatchLatters = this.watchLatters.find(
       (wLat) => wLat.id === movie.id
     );
 
     if (!existingWatchLatters) {
-      const newWatchLatters = { ...movie, favorite: true };
-      this.watchLatters.push(newWatchLatters);
-    } else {
-      existingWatchLatters.favorite = true;
+      this.watchLatters.push(movie);
     }
     console.log('WatchLatters:', this.watchLatters);
   }

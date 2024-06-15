@@ -16,7 +16,7 @@
       <p class="info popularity">Rating:{{ movie.popularity }}</p>
       <p class="overview">{{ movie.overview }}</p>
     </div>
-    @if (!movie.favorite){
+    @if (!isFavorite){
     <div class="user-button">
       <button class="button favorite" (click)="addToFavoritesList()">
         Add to favorite
