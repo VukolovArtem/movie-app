@@ -6,21 +6,19 @@
   <ng-template pTemplate="header">
     <img alt="{{ movie.title }}" src="{{ movie.backdrop_path }}" />
   </ng-template>
-  <p-panel [toggleable]="true"
-    ><p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga suscipit,
-      modi doloremque id quasi dolor aspernatur. Veniam nemo delectus fugit
-      praesentium, iure rem, sint voluptates deleniti magnam officia
-      consequuntur quasi!
-    </p></p-panel
-  >
 
+  <p styleClass="overview">
+    {{ movie.overview }}
+  </p>
+
+  @if (!isFavorite){
   <ng-template pTemplate="footer">
-    <div class="flex gap-3 mt-1">
-      <p-button icon="pi pi-check" />
-      <p-button icon="pi pi-bookmark" />
+    <div class="active-button">
+      <p-button icon="pi pi-heart" (click)="addToFavoritesList()" />
+      <p-button icon="pi pi-bookmark" (click)="addToWatchLetterList()" />
     </div>
   </ng-template>
+  }
 </p-card>
 
 <!--
@@ -42,7 +40,7 @@
       <p class="info popularity">Rating:{{ movie.popularity }}</p>
       <p class="overview">{{ movie.overview }}</p>
     </div>
-    @if (!isFavorite){
+    @if (!isFavorite){}
     <div class="user-button">
       <button class="button favorite" (click)="addToFavoritesList()">
         Add to favorite

@@ -1,60 +1,12 @@
 :host {
   ::ng-deep {
-    .p-component {
-      color: rgb(255, 255, 255); //іконка кнопок
-    }
-
-    .p-card {
-      color: rgb(1, 3, 36);
-      //
-
-      &-header {
-        //  width: 50%; //картинка
-      }
-      &-body {
-        //  flex: 1 1 100%;
-      }
-      &-title {
-        //  width: 50%; //заголовок
-      }
-      &-subtitle {
-        //  width: 50%; //дата
-      }
-      &-content {
-        //  width: 50%; //дата
-      }
-      &-footer {
-        //  flex: 0 0;
-        p-button {
-          margin-left: 20px;
-        }
-      }
+    .p-element {
+      transform: scale(1.1);
     }
   }
 }
-
-//   .card {
-//      width: 100%;
-//      aspect-ratio: 2 / 5;
-//      background-color: aqua;
-//      margin-bottom: 30px;
-
-//      .overview {
-//        display: flex;
-//        flex: 1;
-//      }
-//    }
-
-//    .p-button {
-//      background-color: rgb(195, 218, 248);
-
-//      border-radius: 5px;
-//      color: rgb(32, 32, 32);
-//      border-color: inherit;
-//    }
-//  }
-//}
-
-//.active-button {
-//
-//}
+.active-button {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
