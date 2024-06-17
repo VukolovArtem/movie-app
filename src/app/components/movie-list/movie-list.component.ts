@@ -13,6 +13,7 @@ export class MovieListComponent {
   public favorites: any[] = [];
   public watchLatters: any[] = [];
   public isFavorite: boolean = false;
+  public maxRating: number = 10;
 
   movies = [
     {
