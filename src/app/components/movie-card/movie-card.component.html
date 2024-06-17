@@ -1,3 +1,22 @@
+<p-card
+  header="{{ movie.original_title | uppercase }}"
+  subheader="{{ movie.release_date | dateFormat }}"
+  [style]="{ width: '360px' }"
+>
+  <ng-template pTemplate="header">
+    <img alt="{{ movie.title }}" src="{{ movie.backdrop_path }}" />
+  </ng-template>
+  <p>{{ movie.overview }}</p>
+
+  <ng-template pTemplate="footer">
+    <div class="flex gap-3 mt-1">
+      <p-button icon="pi pi-check" />
+      <p-button icon="pi pi-bookmark" />
+    </div>
+  </ng-template>
+</p-card>
+
+<!--
 <div class="movie-card">
   <div class="content">
     <div class="wraper-img">
@@ -27,4 +46,4 @@
     </div>
     }
   </div>
-</div>
+</div>-->
