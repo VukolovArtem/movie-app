@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
+import { DividerModule } from 'primeng/divider';
 
 @Component({
   selector: 'app-movie-list',
   standalone: true,
-  imports: [CommonModule, MovieCardComponent],
+  imports: [CommonModule, MovieCardComponent, DividerModule],
   templateUrl: './movie-list.component.html',
   styleUrl: './movie-list.component.scss',
 })

@@ -12,18 +12,20 @@
     </div>
 
     @if (favorites.length>0){
+
     <div class="favorite-block">
-      <h3>Favorites:</h3>
-      <div class="content favorite-content">
+      <p-divider align="left" type="solid"> <h3>Favorites</h3> </p-divider>
+      <div class="favorit favorite-content">
         @for (favorite of favorites; track favorite.id){
         <app-movie-card [movie]="favorite" [isFavorite]="true"></app-movie-card>
         }
       </div>
     </div>
+
     } @if (watchLatters.length>0){
     <div class="watch-latter-block">
-      <h3>Watch latter:</h3>
-      <div class="content watch-latter-content">
+      <p-divider align="left" type="solid"> <h3>Watch latter</h3> </p-divider>
+      <div class="favorit watch-latter-content">
         @for (watchLatter of watchLatters; track watchLatter.id){
         <app-movie-card
           [movie]="watchLatter"
