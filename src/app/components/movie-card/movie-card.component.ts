@@ -7,6 +7,7 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
+import { PanelModule } from 'primeng/panel';
 
 @Component({
   selector: 'app-movie-card',
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     ButtonModule,
     RatingModule,
     FormsModule,
+    PanelModule,
   ],
   templateUrl: './movie-card.component.html',
   styleUrl: './movie-card.component.scss',
