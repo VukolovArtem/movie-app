@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
+import { DividerModule } from 'primeng/divider';
 
 @Component({
   selector: 'app-movie-list',
   standalone: true,
-  imports: [CommonModule, MovieCardComponent],
+  imports: [CommonModule, MovieCardComponent, DividerModule],
   templateUrl: './movie-list.component.html',
   styleUrl: './movie-list.component.scss',
 })
@@ -13,6 +14,7 @@ export class MovieListComponent {
   public favorites: any[] = [];
   public watchLatters: any[] = [];
   public isFavorite: boolean = false;
+  public maxRating: number = 10;
 
   movies = [
     {
@@ -49,7 +51,7 @@ export class MovieListComponent {
       original_language: 'en',
       original_title: 'Godzilla x Kong: The New Empire',
       overview:
-        'Following their explosive showdown, Godzilla and Kong must reunite against a colossal undiscovered threat hidden within our world, challenging their very existence – and our own.',
+        'Following their explosive showdown, Godzilla and Kong must reunite against a colossal undiscovered threat hidden.',
       popularity: 1931.335,
       poster_path: '/z1p34vh7dEOnLDmyCrlUVLuoDzd.jpg',
       release_date: '2024-03-27',
@@ -62,7 +64,7 @@ export class MovieListComponent {
       original_language: 'en',
       original_title: 'Tarot',
       overview:
-        'When a group of friends recklessly violate the sacred rule of Tarot readings, they unknowingly unleash an unspeakable evil trapped within the cursed cards. ',
+        'When a group of friends recklessly violate the sacred rule of Tarot readings, they unknowingly unleash.',
       popularity: 1540.535,
       poster_path: '/gAEUXC37vl1SnM7PXsHTF23I2vq.jpg',
       release_date: '2024-05-01',

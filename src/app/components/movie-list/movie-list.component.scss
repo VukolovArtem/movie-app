@@ -1,17 +1,29 @@
-.container {
-  max-width: 1170px;
-  margin: 0 auto;
+:host {
+  ::ng-deep {
+    .p-divider-content h3 {
+      font-size: 30px;
+    }
+  }
 }
 
-.content {
-  display: flex;
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
 .movie-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  height: 100%;
 }
 
-.favorite-content {
+.favorite-block {
+}
+
+.favorit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 30px;
 }

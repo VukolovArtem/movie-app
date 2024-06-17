@@ -1,85 +1,12 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-.movie-card {
-  display: flex;
-  max-width: 250px;
-  aspect-ratio: 2/6.5;
-  background-color: antiquewhite;
-  border: 1px solid #445162;
-  border-radius: 6px;
-  margin: 5px;
-}
-.content {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.wraper-img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 2/3;
-  height: max-content;
-  margin-bottom: 30px;
-}
-
-.img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  transform: scale(1.1);
-}
-
-.item-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex: 1 1;
-  margin: 0 15px;
-}
-
-.info {
-  display: flex;
-  margin: 5px 0;
-}
-.title {
-  text-align: start;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.user-button {
-  display: flex;
-  flex-direction: column;
-}
-
-.button {
-  min-width: 100%;
-  height: max-content;
-  padding: 10 0;
-  margin-top: 5px;
-  border: none;
-  line-height: 40px;
-  font-weight: 600;
-}
-.overview {
-  margin: 15px 0;
-}
-
-.favorite {
-  background-color: #ffa8a8;
-  &:hover {
-    background-color: #ff4545; /* Цвет кнопки при наведении */
+:host {
+  ::ng-deep {
+    .p-element {
+      transform: scale(1.1);
+    }
   }
 }
-.watch-letter {
-  background-color: #a4ffb8;
-  &:hover {
-    background-color: #47ff6f; /* Цвет кнопки при наведении */
-  }
+.active-button {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
 }

@@ -10,6 +10,6 @@ export class DateFormatPipe implements PipeTransform {
       return '';
     }
     const [year, month, day] = value.split('-');
-    return `${day}.${month}.${year}`;
+    return `Release: ${day}.${month}.${year}`;
   }
 }
