@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
 import { DividerModule } from 'primeng/divider';
+import { nowPlayingMovies } from '@app/data/mock-data';
 
 @Component({
   selector: 'app-movie-list',
@@ -10,67 +11,20 @@ import { DividerModule } from 'primeng/divider';
   templateUrl: './movie-list.component.html',
   styleUrl: './movie-list.component.scss',
 })
-export class MovieListComponent {
+export class MovieListComponent implements OnInit {
   public favorites: any[] = [];
   public watchLatters: any[] = [];
   public isFavorite: boolean = false;
   public maxRating: number = 10;
 
-  movies = [
-    {
-      adult: false,
-      backdrop_path: 'assets/img/KingdomOfThePlanetOfTheApes.jpg',
+  movies = nowPlayingMovies;
 
-      id: 653346,
-      original_language: 'en',
-      original_title: 'Kingdom of the Planet of the Apes',
-      overview:
-        "Several generations in the future following Caesar's reign, apes are now the dominant species and live harmoniously while humans have been reduced to living in the shadows. As a new tyrannical ape leader builds his empire, one young ape undertakes a harrowing journey that will cause him to question all that he has known about the past and to make choices that will define a future for apes and humans alike..",
-      popularity: 4703.624,
-      poster_path: '/gKkl37BQuKTanygYQG1pyYgLVgf.jpg',
-      release_date: '2024-05-08',
-      title: 'Kingdom of the Planet of the Apes',
-    },
-    {
-      backdrop_path: 'assets/img/CivilWar.jpg',
+  constructor() {}
 
-      id: 929590,
-      original_language: 'en',
-      original_title: 'Civil War',
-      overview:
-        'In the near future, a group of war journalists attempt to survive while reporting the truth as the United States stands on the brink of civil war.',
-      popularity: 2418.019,
-      poster_path: '/sh7Rg8Er3tFcN9BpKIPOMvALgZd.jpg',
-      release_date: '2024-04-10',
-      title: 'Civil War',
-    },
-    {
-      backdrop_path: 'assets/img/GodzillaxKongTheNewEmpire.jpg',
-
-      id: 823464,
-      original_language: 'en',
-      original_title: 'Godzilla x Kong: The New Empire',
-      overview:
-        'Following their explosive showdown, Godzilla and Kong must reunite against a colossal undiscovered threat hidden within our world, challenging their very existence вЂ“ and our own.',
-      popularity: 1931.335,
-      poster_path: '/z1p34vh7dEOnLDmyCrlUVLuoDzd.jpg',
-      release_date: '2024-03-27',
-      title: 'Godzilla x Kong: The New Empire',
-    },
-    {
-      backdrop_path: 'assets/img/Tarot.jpg',
-
-      id: 719221,
-      original_language: 'en',
-      original_title: 'Tarot',
-      overview:
-        'When a group of friends recklessly violate the sacred rule of Tarot readings, they unknowingly unleash an unspeakable evil trapped within the cursed cards. One by one, they come face to face with fate and end up in a race against death.',
-      popularity: 1540.535,
-      poster_path: '/gAEUXC37vl1SnM7PXsHTF23I2vq.jpg',
-      release_date: '2024-05-01',
-      title: 'Tarot',
-    },
-  ];
+  ngOnInit(): void {
+    // Ініціалізація.компонента
+    console.log('MovieListComponent initialized');
+  }
 
   addFavorite(movie: any): void {
     const existingFavorite = this.favorites.find((fav) => fav.id === movie.id);
