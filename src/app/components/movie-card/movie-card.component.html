@@ -1,22 +1,29 @@
-<p-card
-  header=" {{ movie.original_title | uppercase }}"
-  subheader="{{ movie.release_date | dateFormat }}"
-  [style]="{ width: '360px' }"
->
-  <ng-template pTemplate="header">
+<div class="card">
+  <div class="card__image">
     <img alt="{{ movie.title }}" src="{{ movie.backdrop_path }}" />
-  </ng-template>
-
-  <p styleClass="overview">
-    {{ movie.overview }}
-  </p>
+  </div>
+  <div class="card__content">
+    <h2 class="card__title">{{ movie.original_title | uppercase }}</h2>
+    <h3 class="card__release">{{ movie.release_date | dateFormat }}</h3>
+    <p class="card__descr">
+      {{ movie.overview }}
+    </p>
+  </div>
 
   @if (!isFavorite){
-  <ng-template pTemplate="footer">
-    <div class="active-button">
-      <p-button icon="pi pi-heart" (click)="addToFavoritesList()" />
-      <p-button icon="pi pi-bookmark" (click)="addToWatchLetterList()" />
-    </div>
-  </ng-template>
+
+  <div class="card__active">
+    <p-button
+      icon="pi pi-heart br-20"
+      size="large"
+      (click)="addToFavoritesList()"
+    />
+    <p-button
+      icon="pi pi-bookmark"
+      size="large"
+      (click)="addToWatchLetterList()"
+    />
+  </div>
+
   }
-</p-card>
+</div>
