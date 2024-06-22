@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card__image">
-    <img alt="{{ movie.title }}" src="{{ movie.backdrop_path }}" />
+    <img alt="{{ movie.title }}" [src]="getImageUrl(movie)" />
   </div>
   <div class="card__content">
     <h2 class="card__title">{{ movie.original_title | uppercase }}</h2>
