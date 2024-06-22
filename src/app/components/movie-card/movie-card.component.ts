@@ -32,6 +32,12 @@ export class MovieCardComponent {
   @Output() addToFavorite = new EventEmitter<any>();
   @Output() addToWatchLetter = new EventEmitter<any>();
 
+  getImageUrl(movie: { poster_path: any; backdrop_path: any }): string {
+    return `https://image.tmdb.org/t/p/w500${
+      movie.poster_path || movie.backdrop_path
+    }`;
+  }
+
   addToFavoritesList(): void {
     this.addToFavorite.emit(this.movie);
     console.log('addToFavorite');
