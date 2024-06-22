@@ -1,11 +1,12 @@
 .wraper {
+  width: 1920px;
   margin: 0 auto;
 }
 
 .cards {
   display: flex;
-  justify-content: space-around;
-  margin: 0 auto;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .favorite-block {
