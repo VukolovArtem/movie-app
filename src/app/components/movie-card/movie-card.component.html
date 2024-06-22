@@ -13,16 +13,25 @@
   @if (!isFavorite){
 
   <div class="card__active">
-    <p-button
-      icon="pi pi-heart br-20"
-      size="large"
-      (click)="addToFavoritesList()"
-    />
-    <p-button
-      icon="pi pi-bookmark"
-      size="large"
-      (click)="addToWatchLetterList()"
-    />
+    <div class="rating">
+      <p-rating
+        [ngModel]="movie.popularity"
+        [readonly]="true"
+        [cancel]="false"
+      />
+    </div>
+    <div class="btn">
+      <p-button
+        icon="pi pi-heart br-20"
+        size="large"
+        (click)="addToFavoritesList()"
+      />
+      <p-button
+        icon="pi pi-bookmark"
+        size="large"
+        (click)="addToWatchLetterList()"
+      />
+    </div>
   </div>
 
   }

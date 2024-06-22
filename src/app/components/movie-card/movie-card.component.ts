@@ -8,6 +8,7 @@ import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { PanelModule } from 'primeng/panel';
+import { PopularityInTheRatingPipe } from '@app/pipes/popularity-in-the-rating.pipe';
 
 @Component({
   selector: 'app-movie-card',
@@ -20,11 +21,17 @@ import { PanelModule } from 'primeng/panel';
     RatingModule,
     FormsModule,
     PanelModule,
+    PopularityInTheRatingPipe,
   ],
   templateUrl: './movie-card.component.html',
   styleUrl: './movie-card.component.scss',
 })
-export class MovieCardComponent {
+export class MovieCardComponent implements OnInit {
+  ngOnInit(): void {
+    // Инициализация компонента
+    console.log('MovieListComponent initialized');
+  }
+
   @Input() movie: any;
   @Input() maxRating: any;
   @Input() isFavorite: boolean = false;
