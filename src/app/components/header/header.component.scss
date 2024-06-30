@@ -1,0 +1,19 @@
+.header-nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.link {
+  padding: 10px 30px;
+  border-radius: 15px;
+  background-color: #58bcff;
+  border: 1px solid #58bcff;
+  color: aliceblue;
+  font-size: 15px;
+  margin: 20px;
+  &:hover {
+    background-color: #6bc4ff;
+  }
+}

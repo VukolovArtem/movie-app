@@ -1,8 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
 import { DividerModule } from 'primeng/divider';
-import { nowPlayingMovies } from '@app/data/mock-data';
 
 @Component({
   selector: 'app-movie-list',
@@ -15,34 +14,42 @@ export class MovieListComponent implements OnInit {
   public favorites: any[] = [];
   public watchLatters: any[] = [];
   public isFavorite: boolean = false;
-  public maxRating: number = 10;
+  //  public maxRating: number = 10;
 
-  movies = nowPlayingMovies;
+  @Input() movies: any[] = [];
+
+//  @Output() favoriteMoviesSelected = new EventEmitter<any[]>();
+//  @Output() watchLaterMoviesSelected = new EventEmitter<any[]>();
+//  @Output() favoriteMovieIds: string[] = [];
+//  @Output() watchLaterMovieIds: string[] = [];
 
   constructor() {}
 
   ngOnInit(): void {
     // Ініціалізація.компонента
-    console.log('MovieListComponent initialized');
-  }
-
-  addFavorite(movie: any): void {
-    const existingFavorite = this.favorites.find((fav) => fav.id === movie.id);
-
-    if (!existingFavorite) {
-      this.favorites.push(movie);
-    }
-    console.log('Favorites:', this.favorites);
-  }
-
-  addWatchLatter(movie: any): void {
-    const existingWatchLatters = this.watchLatters.find(
-      (wLat) => wLat.id === movie.id
-    );
-
-    if (!existingWatchLatters) {
-      this.watchLatters.push(movie);
-    }
-    console.log('WatchLatters:', this.watchLatters);
+   // console.log('MovieListComponent initialized', this.movies);
   }
 }
+//addFavorite(movie: any): void {
+//   const existingFavorite = this.favorites.find((fav) => fav.id === movie.id);
+
+//   if (!existingFavorite) {
+//     this.favorites.push(movie);
+//     this.favoriteMovieIds.push(movie);
+//     this.favoriteMoviesSelected.emit(this.favorites);
+//   }
+//   console.log('Favorites:', this.favorites);
+// }
+
+// addWatchLatter(movie: any): void {
+//   const existingWatchLatters = this.watchLatters.find(
+//     (wLat) => wLat.id === movie.id
+//   );
+
+//   if (!existingWatchLatters) {
+//     this.watchLatters.push(movie);
+//     this.watchLaterMovieIds.push(movie);
+//     this.watchLaterMoviesSelected.emit(this.watchLatters);
+//   }
+//   console.log('WatchLatters:', this.watchLatters);
+// }

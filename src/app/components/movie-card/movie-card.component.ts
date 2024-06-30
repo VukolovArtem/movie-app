@@ -8,7 +8,9 @@ import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { PanelModule } from 'primeng/panel';
-import { PopularityInTheRatingPipe } from '@app/pipes/popularity-in-the-rating.pipe';
+import { RoundingUpPipe } from '@app/pipes/rounding-up.pipe';
+import { MovieService } from '@app/services/movie.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-movie-card',
@@ -21,20 +23,20 @@ import { PopularityInTheRatingPipe } from '@app/pipes/popularity-in-the-rating.p
     RatingModule,
     FormsModule,
     PanelModule,
-    PopularityInTheRatingPipe,
+    RoundingUpPipe,
+    RouterLink,
   ],
   templateUrl: './movie-card.component.html',
   styleUrl: './movie-card.component.scss',
 })
 export class MovieCardComponent implements OnInit {
-  ngOnInit(): void {
-    // Инициализация компонента
-    console.log('MovieListComponent initialized');
-  }
+  constructor(public movieService: MovieService) {}
+
+  ngOnInit(): void {}
 
   @Input() movie: any;
-  @Input() maxRating: any;
   @Input() isFavorite: boolean = false;
+  @Input() isDetail: boolean = false;
 
   @Output() addToFavorite = new EventEmitter<any>();
   @Output() addToWatchLetter = new EventEmitter<any>();
@@ -46,11 +48,12 @@ export class MovieCardComponent implements OnInit {
   }
 
   addToFavoritesList(): void {
-    this.addToFavorite.emit(this.movie);
-    console.log('addToFavorite');
+    this.movieService.setFavorites(this.movie);
   }
+
   addToWatchLetterList(): void {
-    this.addToWatchLetter.emit(this.movie);
-    console.log('addToFavorite');
+    this.movieService.setWatchLater(this.movie);
   }
+
+  goToDetail(): void {}
 }

@@ -1,0 +1,22 @@
+<button class="sidebar-btn" (click)="toggleSidebar()">Open sidebar</button>
+
+@if(sidebarVisible){
+<ng-container class="wraper">
+  <div class="content" (click)="toggleSidebar()">
+    <ul class="sidebar" (click)="toggleSidebar()">
+      <li routerLinkActive="active-link"><a routerLink="/">Home</a></li>
+      <li routerLinkActive="active-link">
+        <a routerLink="/popular">Popular</a>
+      </li>
+      <li routerLinkActive="active-link">
+        <a routerLink="/now-playing">Now Playing</a>
+      </li>
+      <li routerLinkActive="active-link">
+        <a routerLink="/top-rate">Top Rate</a>
+      </li>
+      <li routerLinkActive="active-link">
+        <a routerLink="/upcoming">Upcoming</a>
+      </li>
+    </ul>
+  </div> </ng-container
+>}
