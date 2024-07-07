@@ -18,6 +18,7 @@
   color: aliceblue;
   font-size: 15px;
   margin: 20px;
+
   &:hover {
     background-color: #6bc4ff;
   }
@@ -45,25 +46,28 @@
   left: 0;
   width: 300px;
   height: 100%;
-  background-color: #58bcff;
-  color: white;
+  background-color: #2a75a7;
+  font-weight: bold;
+  color: #7099b4;
   z-index: 10;
   padding: 20px;
+  box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.2);
 
   li {
-    font-size: 20px;
-    color: white;
+    font-size: 24px;
     margin: 20px 0;
     a {
       display: block;
       width: 100%;
       text-decoration: none;
       padding: 15px 15px;
+      &:hover {
+        color: #ffffff;
+      }
     }
 
-    .active-link {
-      font-weight: bold;
-      color: red;
+    .nav-link-active {
+      color: #ffffff;
     }
   }
 }

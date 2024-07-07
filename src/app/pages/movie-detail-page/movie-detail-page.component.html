@@ -1,1 +1,36 @@
-<p>movie-detail-page works!</p>
+<div class="card">
+  <div class="card__image">
+    <img alt="{{ movie.title }}" [src]="imageUrl" />
+  </div>
+
+  <div class="card__content">
+    <h2 class="card__title">{{ movie.original_title | uppercase }}</h2>
+    <h3 class="card__release">{{ movie.release_date | dateFormat }}</h3>
+
+    <p class="card__descr">
+      {{ movie.overview }}
+    </p>
+
+    <div class="card__active">
+      <p-button
+        (click)="addToFavoritesList()"
+        class="button"
+        icon="pi pi-heart br-20"
+        size="large"
+      />
+      <p-button
+        class="button"
+        icon="pi pi-bookmark"
+        size="large"
+        (click)="addToWatchLetterList()"
+      />
+      <p-rating
+        class="rating"
+        [(ngModel)]="rating"
+        [readonly]="true"
+        [cancel]="false"
+        [stars]="10"
+      />
+    </div>
+  </div>
+</div>

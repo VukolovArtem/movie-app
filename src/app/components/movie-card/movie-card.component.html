@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card__image">
-    <a routerLink="/">
-      <img alt="{{ movie.title }}" [src]="getImageUrl(movie)"
+    <a (click)="navigateToMovieDetails()" (keydown)="navigateToMovieDetails()">
+      <img alt="{{ movie.title }}" [src]="imageUrl"
     /></a>
   </div>
 
@@ -13,22 +13,31 @@
       {{ movie.overview }}
     </p>
     }
-    <p-rating
-      class="rating"
-      [(ngModel)]="movie.vote_average"
-      [readonly]="true"
-      [cancel]="false"
-      [stars]="10"
-    />
   </div>
 
   <div class="card__active">
+    <p-rating
+      class="rating"
+      [(ngModel)]="rating"
+      [readonly]="true"
+      [cancel]="false"
+      [stars]="5"
+    />
+
     <p-button
+      class="button"
       icon="pi pi-heart br-20"
       size="large"
       (click)="addToFavoritesList()"
     />
     <p-button
+      class="button"
+      icon="pi pi-trash br-20"
+      size="large"
+      (click)="removeToFavoritesList()"
+    />
+    <p-button
+      class="button"
       icon="pi pi-bookmark"
       size="large"
       (click)="addToWatchLetterList()"

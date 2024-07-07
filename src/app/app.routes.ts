@@ -16,9 +16,10 @@ export const routes: Routes = [
   {
     path: 'movie/:id',
     canActivate: [MovieGuard],
-    component: UpcomingMoviePageComponent,
-    resolve: { data: MovieResolver },
+    component: MovieDetailPageComponent,
+    // resolve: { data: MovieResolver },
   },
+
   { path: 'popular', component: PopularMoviePageComponent },
   { path: 'now-playing', component: NowPlayingMoviePageComponent },
   { path: 'top-rate', component: TopRateMoviePageComponent },
@@ -26,5 +27,3 @@ export const routes: Routes = [
   { path: 'favorite', component: MovieFavoritePageComponent },
   { path: 'watch-list', component: MovieWatchLaterPageComponent },
 ];
-
-//MovieDetailPageComponent

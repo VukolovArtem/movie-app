@@ -12,11 +12,11 @@ import { MovieService } from '@app/services/movie.service';
   providers: [MovieService],
 })
 export class MovieListPageComponent implements OnInit {
-  popularMovie: any[] = [];
+  allMovies: any[] = [];
 
   constructor(private movieService: MovieService) {}
 
   ngOnInit(): void {
-    this.popularMovie = this.movieService.getNowPlayingMovies();
+    this.allMovies = this.movieService.getAllMovies();
   }
 }

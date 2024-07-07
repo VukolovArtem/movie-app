@@ -14,6 +14,7 @@ export class MovieWatchLaterPageComponent implements OnInit {
   constructor(public movieService: MovieService) {}
 
   public watchLaters: Array<any> = [];
+  isWatchLaters: boolean = true;
 
   ngOnInit(): void {
     this.watchLaters = this.movieService.getWatchLater();

@@ -1,3 +1,4 @@
+import { identifierName } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import {
   nowPlayingMovies,
@@ -15,6 +16,19 @@ export class MovieService {
   private _favorites: Array<any> = [];
   private _watchLater: Array<any> = [];
 
+  private allMovies: Array<any> = [
+    ...new Set([
+      ...nowPlayingMovies,
+      ...popularMovies,
+      ...topRatedMovies,
+      ...upcomingMovies,
+    ]),
+  ];
+  //----GET ARRAY------
+  getAllMovies() {
+    return this.allMovies;
+  }
+
   getNowPlayingMovies() {
     return nowPlayingMovies;
   }
@@ -30,6 +44,11 @@ export class MovieService {
   getUpcomingMovies() {
     return upcomingMovies;
   }
+  //----- MOVIE BY ID -----
+  getMovieById(id: number) {
+    return this.allMovies.find((movie) => movie.id === id);
+  }
+  //-----------------------
   //----Favorites Page-----
   getFavorites() {
     console.log('getFav', this._favorites);
@@ -45,9 +64,12 @@ export class MovieService {
     }
   }
   removeFavorites(id: number) {
+    console.log(this._favorites);
     this._favorites = this._favorites.filter((e) => e.id !== id);
+    console.log(this._favorites);
   }
   //-----------------------
+
   //---Watch Later Page---
   getWatchLater() {
     return this._watchLater;

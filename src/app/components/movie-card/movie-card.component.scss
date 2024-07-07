@@ -6,9 +6,13 @@
   overflow: hidden;
   border: 1px solid rgb(182, 226, 255);
   border-radius: 10px;
-  background-color: rgb(231, 245, 255);
+  background-color: rgb(206, 225, 238);
   box-shadow: 4px 4px 8px rgba(86, 90, 92, 0.226);
   transition: box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.01);
+  }
 
   &__image {
     width: 100%;
@@ -28,11 +32,6 @@
     align-items: flex-start;
     flex-grow: 1;
     margin: 15px;
-
-    .rating {
-      transform: scale(1.1);
-      margin: 15px;
-    }
   }
   &__title {
     margin: 0;
@@ -48,20 +47,31 @@
     display: flex;
     justify-content: flex-end;
     gap: 10px;
-    // margin-top: auto;
-    // padding: 20px;
     margin: 15px;
+
+    .rating {
+      display: flex;
+      margin: 0 auto;
+      transform: scale(1.4);
+      transition: box-shadow 0.8s ease-in-out;
+    }
+    .button {
+      background-color: rgba(24, 223, 140, 0);
+      .favorite {
+        background-color: red;
+      }
+    }
 
     ::ng-deep {
       .p-button {
-        background-color: rgb(120, 200, 253) !important;
+        background-color: rgb(47, 172, 255) !important;
         border-color: rgb(208, 236, 255) !important;
         color: #fff !important;
         border-radius: 5px;
       }
 
       .p-button:hover {
-        background-color: rgb(47, 172, 255) !important;
+        background-color: #2196f3 !important;
         border-color: rgb(208, 236, 255) !important;
       }
     }

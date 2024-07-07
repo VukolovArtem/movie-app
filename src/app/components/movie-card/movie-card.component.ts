@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { PanelModule } from 'primeng/panel';
 import { RoundingUpPipe } from '@app/pipes/rounding-up.pipe';
 import { MovieService } from '@app/services/movie.service';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-movie-card',
@@ -30,16 +30,21 @@ import { RouterLink } from '@angular/router';
   styleUrl: './movie-card.component.scss',
 })
 export class MovieCardComponent implements OnInit {
-  constructor(public movieService: MovieService) {}
-
-  ngOnInit(): void {}
-
   @Input() movie: any;
-  @Input() isFavorite: boolean = false;
+  @Input() isFavorite: boolean = true;
   @Input() isDetail: boolean = false;
 
-  @Output() addToFavorite = new EventEmitter<any>();
-  @Output() addToWatchLetter = new EventEmitter<any>();
+  imageUrl!: string;
+  movieId!: string;
+  rating!: number;
+
+  constructor(private router: Router, private movieService: MovieService) {}
+
+  ngOnInit(): void {
+    this.imageUrl = this.getImageUrl(this.movie);
+    this.rating = this.modifyTheRating();
+    this.movieId = this.replaceId(this.movie.id);
+  }
 
   getImageUrl(movie: { poster_path: any; backdrop_path: any }): string {
     return `https://image.tmdb.org/t/p/w500${
@@ -47,13 +52,41 @@ export class MovieCardComponent implements OnInit {
     }`;
   }
 
+  modifyTheRating(): number {
+    return this.movie.vote_average / 2;
+  }
+
+  replaceId(id: number) {
+    return `/${'movie/:id'.replace(':id', String(id))}`;
+  }
+
+  navigateToMovieDetails() {
+    this.router.navigate([this.movieId]);
+  }
+  //--------------------------
+
   addToFavoritesList(): void {
     this.movieService.setFavorites(this.movie);
   }
+
+  removeToFavoritesList(): void {
+    this.movieService.removeFavorites(this.movie.id);
+  }
+
+  //--------------------------
 
   addToWatchLetterList(): void {
     this.movieService.setWatchLater(this.movie);
   }
 
-  goToDetail(): void {}
+  removeToWatchLetterList(): void {
+    this.movieService.removeWatchLater(this.movie);
+  }
+
+  //--------------------------
+
+  goToMovieDetail(movieId: number) {
+    this.router.navigate(['/movie', movieId]);
+    this.movieService.getMovieById(this.movie);
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MovieCardComponent } from '@app/components/movie-card/movie-card.component';
 import { MovieListComponent } from '@app/components/movie-list/movie-list.component';
 import { MovieService } from '@app/services/movie.service';
@@ -14,6 +14,7 @@ export class MovieFavoritePageComponent implements OnInit {
   constructor(public movieService: MovieService) {}
 
   public favorites: Array<any> = [];
+  @Input() isFavorite: boolean = false;
 
   ngOnInit(): void {
     this.favorites = this.movieService.getFavorites();
