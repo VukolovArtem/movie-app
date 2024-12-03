@@ -1,85 +1,71 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-.movie-card {
-  display: flex;
-  max-width: 250px;
-  aspect-ratio: 2/6.5;
-  background-color: antiquewhite;
-  border: 1px solid #445162;
-  border-radius: 6px;
-  margin: 5px;
-}
-.content {
+.card {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-}
 
-.wraper-img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 2/3;
-  height: max-content;
-  margin-bottom: 30px;
-}
-
-.img {
-  display: block;
-  width: 100%;
+  width: 360px;
   height: 100%;
-  object-fit: fill;
-  transform: scale(1.1);
-}
 
-.item-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex: 1 1;
-  margin: 0 15px;
-}
+  border: 1px solid rgb(208, 236, 255);
+  border-radius: 8px;
 
-.info {
-  display: flex;
-  margin: 5px 0;
-}
-.title {
-  text-align: start;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
+  box-shadow: 4px 4px 8px rgba(86, 90, 92, 0.226);
+  transition: box-shadow 0.3s ease-in-out;
 
-.user-button {
-  display: flex;
-  flex-direction: column;
-}
-
-.button {
-  min-width: 100%;
-  height: max-content;
-  padding: 10 0;
-  margin-top: 5px;
-  border: none;
-  line-height: 40px;
-  font-weight: 600;
-}
-.overview {
-  margin: 15px 0;
-}
-
-.favorite {
-  background-color: #ffa8a8;
-  &:hover {
-    background-color: #ff4545; /* Цвет кнопки при наведении */
+  &__image {
+    width: 100%;
+    height: calc(100% * (3 / 2));
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
   }
-}
-.watch-letter {
-  background-color: #a4ffb8;
-  &:hover {
-    background-color: #47ff6f; /* Цвет кнопки при наведении */
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+    flex-grow: 1;
+    padding: 15px;
+  }
+  &__title {
+    margin: 0;
+  }
+  &__release {
+    margin-bottom: 15px;
+  }
+  &card__descr {
+    margin-bottom: 15px;
+  }
+  &__active {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-top: auto;
+    padding: 20px;
+
+    ::ng-deep {
+      .p-button {
+        background-color: rgb(120, 200, 253) !important; /* Новый цвет фона */
+        border-color: rgb(208, 236, 255) !important; /* Новый цвет бордера */
+        color: #fff !important; /* Цвет текста */
+      }
+
+      .p-button:hover {
+        background-color: rgb(
+          47,
+          172,
+          255
+        ) !important; /* Цвет фона при наведении */
+        border-color: rgb(
+          208,
+          236,
+          255
+        ) !important; /* Цвет бордера при наведении */
+      }
+    }
   }
 }

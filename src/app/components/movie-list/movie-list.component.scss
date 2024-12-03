@@ -1,17 +1,17 @@
-.container {
-  max-width: 1170px;
+.wraper {
   margin: 0 auto;
 }
 
-.content {
+.cards {
   display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
 }
 
-.movie-list {
+.favorite-block {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.favorite-content {
+  justify-content: flex-start;
+  margin: 20px;
+  gap: 20px;
 }
